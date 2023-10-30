@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jaxbVersion = '2.3.3'
+    hibernateVersion = '5.3.7.Final'
+}
+
+dependencies {
+  // app logger
+    implementation "log4j:log4j:1.2.17"
+    implementation "org.slf4j:slf4j-api:1.7.5"
+    implementation "org.slf4j:slf4j-log4j12:1.7.5"
+    // database
+    // https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11
+    implementation 'com.oracle.database.jdbc:ojdbc11:23.2.0.0'
+  // database - hibernate
+    implementation "org.hibernate:hibernate-core:${hibernateVersion}"
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:${jaxbVersion}"
+    implementation "org.glassfish.jaxb:jaxb-runtime:${jaxbVersion}"
+}
+
+mainClassName = "example.Main"
